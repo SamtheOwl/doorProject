@@ -8,15 +8,15 @@ import sys
 print(" ")
 print("Email.py started")
 
-recipients = ["sam.park@live.com"]
+recipients = ["someEmail@Email.com"]
 
-emaillist = [elem.strip().split(',') for elem in recipients]
+emailList = [elem.strip().split(',') for elem in recipients]
 
 msg = MIMEMultipart()
 
 msg['Subject'] = str(sys.argv[1])
-msg['From'] = "<SprerryPi@gmail.com>"
-msg['Reply-to'] = "SprerryPi@gmail.com"
+msg['From'] = "<otherEmail@otherMail.com>"
+msg['Reply-to'] = "otherEmail@otherMail.com"
  
 msg.preamble = "Multipart massage.\n"
  
@@ -30,9 +30,9 @@ part.add_header("Content-Disposition", "attachment", filename = str(sys.argv[2])
 msg.attach(part)
  
 
-server = smtplib.SMTP("smtp.gmail.com:587")
+server = smtplib.SMTP("smtp.otherMail.com:000")
 server.ehlo()
 server.starttls()
-server.login("SprerryPi@gmail.com", "74108520")
+server.login("otherEmail@otherMail.com", "Password")
  
-server.sendmail(msg["From"], emaillist , msg.as_string())
+server.sendmail(msg["From"], emailList , msg.as_string())
