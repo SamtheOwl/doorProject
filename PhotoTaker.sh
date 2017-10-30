@@ -1,9 +1,7 @@
 #!/bin/sh
 cd Photos
 echo "Taking the Photo"
-now=$1 #Now is the filename time stamp
-#take pic
-fswebcam --no-banner -d /dev/video0 $now.jpg
+currentTime=$1
+fswebcam --no-banner -d /dev/video0 $currentTime.jpg
 echo "Picture Taken"
 echo ""
-
