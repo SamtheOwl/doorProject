@@ -5,17 +5,17 @@ import glob
 print(" ")
 print("Doorbell.py started")
 
-now = time.strftime("Date:%m-%d-%y-Time:%H-%M-%S")
+currentTime = time.strftime("Date:%m-%d-%y_Time:%H-%M-%S")
 
-command = "bash PhotoTaker.sh" + " " + str(now)
+command = "bash PhotoTaker.sh" + " " + str(currentTime)
     
 os.system(command)
 
-print("Filename:", now)
+print("Filename:", currentTime)
 
 print("Starting Email.py")
 
-emailCommand = 'python Email.py "Someone is at the door"' + ' "Photos/' + now + '.jpg"'
+emailCommand = 'python Email.py "Someone is at the door"' + ' "Photos/' + currentTime + '.jpg"'
 
 os.system(emailCommand)
 
@@ -23,4 +23,3 @@ print("Process finished")
 
 print("")
 print("")
-
